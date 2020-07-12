@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+secretGenerator:
+- name: mariadb-pass
+  literals:
+  - password=uday
+- name: mariadbuser-pass
+  literals:
+  - password=redhat
+resources:
+  - mariadb_deployment.yml
+  - nextcloud_deployment.yml
